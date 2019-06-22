@@ -1,0 +1,10 @@
+{
+    "routes": [{
+      "name": "UsersRegister",
+      "path": "backend/routes/UsersRegister",
+      "route": "/users/register",
+      "method": "POST",
+      "isProtected": false
+    }]
+}
+  

@@ -1,0 +1,10 @@
+{
+    "routes": [{
+      "name": "CategoriesList",
+      "path": "backend/routes/CategoriesList",
+      "route": "/categories/get-categories",
+      "method": "GET",
+      "isProtected": false
+    }]
+}
+  

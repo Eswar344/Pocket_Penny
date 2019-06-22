@@ -1,0 +1,10 @@
+{
+    "routes": [{
+      "name": "ExpendituresCreate",
+      "path": "backend/routes/ExpendituresCreate",
+      "route": "/expenditure/create-expenditure",
+      "method": "POST",
+      "isProtected": false
+    }]
+}
+  

@@ -1,0 +1,10 @@
+{
+    "routes": [{
+      "name": "ExpendituresList",
+      "path": "backend/routes/ExpendituresList",
+      "route": "/expenditure/list-expenditure/",
+      "method": "GET",
+      "isProtected": false
+    }]
+}
+  
