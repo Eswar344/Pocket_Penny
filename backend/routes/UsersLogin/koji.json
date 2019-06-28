@@ -1,10 +1,9 @@
 {
-    "routes": [{
-      "name": "UsersLogin",
-      "path": "backend/routes/UsersLogin",
-      "route": "/users/login",
-      "method": "POST",
-      "isProtected": false
-    }]
+  "routes": [{
+    "name": "UsersLogin",
+    "path": "backend/routes/UsersLogin",
+    "route": "/users/login",
+    "method": "POST",
+    "isProtected": false
+  }]
 }
-  

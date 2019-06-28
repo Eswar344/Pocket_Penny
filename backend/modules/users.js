@@ -7,7 +7,7 @@ const UsersCollection = "users";
 
 const createAccount = async (username, password, email, phone) => {
     const id = uuid.v4();
-    await Store.set(UsersCollection, id, { id, username, password, email });
+    await Store.set(UsersCollection, id, { id, username, password, email,maxlimit:0});
     const token = encode(id, username, email)
     return token;
 }
@@ -45,8 +45,25 @@ const login = async (email, password) => {
     if (user.password !== password) {
         throw new Error("Invalid email or password");
     }
-    console.log("-------------------------------",user.id,"---------")
     return encode(user.id, user.username, user.email);
+}
+const constantLimit = async(email)=>{
+    let [user] = await Store.search(UsersCollection,"email", email);
+    if(!user.hasOwnProperty('maxlimit'))
+    {   var userdata=await Store.update(UsersCollection,user.id,{maxlimit:0})
+       return 0
+    }
+    else{
+        return user.maxlimit
+    }
+}
+const updateLimit=async(body,id)=>{
+    var  limit = body.maxlimit
+    var userdata=await Store.update(UsersCollection,id,{maxlimit:limit})
+    if(userdata)
+    {
+        return limit
+    }
 }
 
 module.exports = {
@@ -55,5 +72,7 @@ module.exports = {
     decode,
     getUserById,
     findByQuery,
-    login
+    login,
+    constantLimit,
+    updateLimit
 }

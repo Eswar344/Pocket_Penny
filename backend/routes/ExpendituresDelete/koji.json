@@ -1,10 +1,9 @@
 {
-    "routes": [{
-      "name": "ExpendituresDelete",
-      "path": "backend/routes/ExpendituresDelete",
-      "route": "/expenditure/delete",
-      "method": "POST",
-      "isProtected": false
-    }]
+  "routes": [{
+    "name": "ExpendituresDelete",
+    "path": "backend/routes/ExpendituresDelete",
+    "route": "/expenditure/delete",
+    "method": "POST",
+    "isProtected": false
+  }]
 }
-  

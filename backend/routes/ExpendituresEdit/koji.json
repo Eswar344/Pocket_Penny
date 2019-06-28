@@ -1,10 +1,9 @@
 {
-    "routes": [{
-      "name": "ExpendituresEdit",
-      "path": "backend/routes/ExpendituresEdit",
-      "route": "/expenditure/create-expenditure",
-      "method": "POST",
-      "isProtected": false
-    }]
+  "routes": [{
+    "name": "ExpendituresEdit",
+    "path": "backend/routes/ExpendituresEdit",
+    "route": "/expenditure/edit",
+    "method": "POST",
+    "isProtected": false
+  }]
 }
-  

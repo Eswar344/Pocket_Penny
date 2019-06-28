@@ -1,0 +1,10 @@
+{
+    "routes": [{
+      "name": "MaxLimit",
+      "path": "backend/routes/MaxLimit",
+      "route": "/constantset",
+      "method": "POST",
+      "isProtected": false
+    }]
+}
+  

@@ -10,7 +10,7 @@ export default async (req, res,next) => {
         if(categoryId){
             query = {...query,categoryId}
         }
-        const list = await expenditureModule.displaylist(query)
+        const list = await Expendituremodule.displaylist(query)
         return res.status(200).send({list})
     } 
      catch (error) {

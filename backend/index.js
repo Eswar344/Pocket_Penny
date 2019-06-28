@@ -17,6 +17,8 @@ import express from 'express';
 import * as fs from 'fs';
 import bodyParser from 'body-parser';
 
+var usersModule=require('./modules/users')
+
 const app = express();
 
 // Body parser
@@ -26,12 +28,34 @@ app.use(bodyParser.urlencoded({
   extended: true,
 }));
 
-
-
 // CORS
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, X-Jiro-Request-Tag');
+  next();
+});
+
+app.use(async (req, res, next) => {
+  let token;
+  if (req.headers && req.headers.authorization) {
+      let parts = req.headers.authorization.split(" ");
+      if (parts.length == 2 && parts[0] == "Bearer") {
+          token = parts[1];
+      }
+  }
+  if (token) {
+      try {
+          const user = usersModule.decode(token);
+          const userData = await usersModule.getUserById(user.id);
+          if (!userData) {
+              throw new Error("Invalid user");
+          }
+          req.user = user;
+      }catch (error) {
+         console.error(error);
+          return next(error);
+      }
+  }
   next();
 });
 
